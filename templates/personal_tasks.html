@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} Personal Task List {% endblock %}
+
+{% block content %}
+<div class="main_container">
+    <div class="task_list">
+        <table>
+            <thead>
+                <th>Task Title</th>
+                <th>Status</th>
+                <th>Level</th>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                    <tr>
+                        <td><a href="/personal_task_list/{{ task.id }}">{{ task.title }}</a></td>
+                        <td>{{ task.status }}</td>
+                        <td>{{ task.level }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %} Detailed Page {% endblock %}
+
+{% block content %}
+<div class="main_container">
+    <div class="detailed_post_container">
+        <h1>{{detailed_post['title']}}</h1>
+        <p>{{detailed_post['message']}}</p>
+        <br>
+        <h4>Assigned: {{detailed_post['assigned']}}</h4>
+        <h4>Status: {{detailed_post['status']}}</h4>
+        <h4>Level: {{detailed_post['level']}}</h4>
+        <h4>Created by: {{detailed_post['author']}}</h4>
+        <h4>Creation date: {{detailed_post['creation_date']}}</h4>
+        <h4>Deadline: {{detailed_post['deadline']}}</h4>
+        <br>
+        <div class="comment_container">
+
+        <div class="comment_list">
+            {% for comment in comments %}
+                <p><i>{{ comment['message'] }}</i></p><br>
+                <p><i>{{ comment['author'] }}</i></p><br>
+                <p><i>{{ comment['creation_date'] }}</i></p><br>
+            {% endfor %}
+        </div>
+
+        <div class="add_comment">
+            <form action="" method="POST">
+                <textarea name="message" id="message" cols="30" rows="10"></textarea><br>
+                <input type="submit" value="Send"><br>
+        </form>
+        </div>
+    </div>
+        <div class="buttons">
+            <a href="/{{detailed_post['id']}}/edit" class="button">Edit</a>
+            <a href="/{{detailed_post['id']}}/delete" class="button">Delete</a>
+            <a href="/" class="button">Back</a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

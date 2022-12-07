@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} ToDo App - Main Page {% endblock %}
+
+{% block content %}
+
+    <div id="mainbox">
+    {% for user in users %}
+        <div class="card">
+          <img src="static/img/person_image.jpg" alt="Person Image" />
+          <h1><a href="/personal_task_list/{{user.firstname}} {{user.lastname}}">{{ user.firstname }} {{ user.lastname }}</a></h1>
+        </div>
+    {% endfor %}
+    </div>
+
+{% endblock %}

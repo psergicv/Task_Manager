@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %} Unassigned Tasks {% endblock %}
+
+{% block content %}
+<div class="main_container">
+    <table>
+            <thead>
+                <th>Task Title</th>
+                <th>Status</th>
+                <th>Level</th>
+                <th>Created On</th>
+                <th>Deadline</th>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                    <tr>
+                        <td><a href="/personal_task_list/{{ task.id }}">{{ task.title }}</a></td>
+                        <td>{{ task.status }}</td>
+                        <td>{{ task.level }}</td>
+                        <td>{{ task.creation_date }}</td>
+                        <td>{{ task.deadline }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+
+{% endblock %}

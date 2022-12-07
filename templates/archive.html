@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} Archived Tasks {% endblock %}
+
+{% block content %}
+<div class="main_container">
+    <div class="task_list">
+        <table>
+            <thead>
+                <th>Task Title</th>
+                <th>Status</th>
+                <th>Level</th>
+            </thead>
+            <tbody>
+                {% for task in archived_tasks %}
+                    <tr>
+                        <td><a href="/archive/{{task.id}}">{{ task.title }}</a></td>
+                        <td>{{ task.status }}</td>
+                        <td>{{ task.level }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

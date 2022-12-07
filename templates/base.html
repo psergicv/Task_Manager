@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <ul class="menu_list">
+            <li class="menu_link"><a href="/index" class="a_nav_link">Home</a></li>
+            <li class="menu_link"><a href="/create" class="a_nav_link">Create Task</a></li>
+            <li class="menu_link"><a href="/unassigned_tasks" class="a_nav_link">Unassigned Tasks</a></li>
+            <li class="menu_link new_user"><a href="/add_user" class="a_nav_link">Add New Member</a></li>
+            <li class="menu_link"><a href="/member_list" class="a_nav_link">Member List</a></li>
+            <li class="menu_link"><a href="/projects" class="a_nav_link">Projects</a></li>
+            <li class="menu_link"><a href="/archive" class="a_nav_link">Archive</a></li>
+            <li class="menu_link"><a href="/logout" class="a_nav_link">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+
+{% block content %}{% endblock %}
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

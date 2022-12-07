@@ -1,0 +1,162 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: "Open Sans", arial;
+  background: rgb(62,189,162);
+  background: #ebe9e8;  
+  background: -webkit-linear-gradient(to right, #ebe9e8, #ebe9e8);  
+  background: linear-gradient(to right, #ebe9e8, #ebe9e8); 
+  color:#000000;
+  font-weight: 500;
+}
+
+nav{
+  background:#ed8eb7;
+  position:absolute;
+  top:0;
+  bottom:0;
+  height:100%;
+  left:0;
+  width:250px;
+}
+
+a {
+  position:relative;
+  text-decoration:none;
+  color:rgb(3, 2, 2);
+  font-size: 20px;
+  font-weight: 400;
+}
+
+a{
+  display:table;
+}
+
+a:hover{
+  color:#fff;
+  background-color:#3863F4; 
+}
+
+.a_nav_link{
+  width:250px;
+}
+ 
+.menu_link {
+  float: left;
+}
+
+.new_user {
+  float: right;
+}
+
+.menu_link a {
+  display: block;
+  color: rgb(224, 224, 238);
+  font-size:20px;
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.card {
+    width: 350px;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 3px #888;
+    border-top: 10px solid green;
+    border-radius: 5%;
+    min-height: 250px;
+    padding: 10px;
+    margin: 10px;
+    }
+
+.card img {
+    border-radius: 45%;
+    width: 70px;
+    margin: 10px;
+}
+
+.card h1{
+    font-weight: lighter;
+    margin-left: 100px;
+    margin-top: -70px;
+}
+      
+.card p{
+    margin: 10px;
+    font-family: segoe ui;
+    line-height: 1.4em;
+    font-size: 1.2em;
+}
+
+#mainbox{
+    font-family: calibri;
+    font-size: 32px;
+    box-sizing: border-box;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 250px;
+}
+
+.employees {
+  display: inline-grid;
+  place-items: center;
+  gap: 10px;
+  grid-template-columns: 550px auto 550px;
+}
+
+.main_container {
+  padding-left: 250px;
+}
+
+.task_list {
+  padding: 30px;
+  width: 600px;
+}
+
+.fixed_headers {
+  width: 750px;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+th { 
+  text-decoration: none; 
+}
+
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+
+td:nth-child(1), th:nth-child(1) { 
+  min-width: 500px; 
+}
+
+td:nth-child(2), th:nth-child(2) { 
+  min-width: 150px; 
+}
+
+td:nth-child(3), th:nth-child(3) { 
+  width: 150px; 
+}
+
+thead {
+  background-color: #333;
+  color: #FDFDFD;
+}
+
+tr {
+  display: block;
+  position: relative;
+}
+
+tbody {
+  display: block;
+  overflow: auto;
+  width: 100%;
+}

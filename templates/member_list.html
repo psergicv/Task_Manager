@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %} Task Manager - Member List {% endblock %}
+
+{% block content %}
+<div class="main_container">
+    <table class="fixed_headers">
+            <thead>
+            {% for header in headers %}
+                <th>{{header}}</th>
+            {% endfor %}
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td><a href="#">{{ user.firstname }} {{ user.lastname }}</a></td>
+                    <td><a href="/user/{{user.id}}/edit">Edit</a></td>
+                    <td><a href="/user/{{user.id}}/delete">Delete</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+</div>
+
+{% endblock %}

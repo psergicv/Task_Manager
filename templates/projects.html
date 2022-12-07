@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %} Task Manager - Projects {% endblock %}
+
+{% block content %}
+<div class="main_container">
+    <div class="project_create_button">
+        <a href="/create_project">Create Project</a>
+        <div class="project_list">
+            <table>
+                <thead>
+                    <th>Project</th>
+                    <th>Status</th>
+                    <th>Level</th>
+                    <th>Author</th>
+                    <th>End Date</th>
+                </thead>
+                <tbody>
+                    {% for project in projects_list %}
+                        <tr>
+                            <td><a href="/project/id={{project.id}}">{{ project.title }}</a></td>
+                            <td>{{ project.status }}</td>
+                            <td>{{ project.level }}</td>
+                            <td>{{ project.author }}</td>
+                            <td>{{ project.end_date }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

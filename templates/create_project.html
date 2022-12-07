@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %} Create new Project {% endblock %}
+
+{% block content %}
+<div class="main_container">
+    <form action="" method="POST">
+        <input type="text" id="name" name="name" placeholder="Project name" required>
+        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+        <select name="status" id="status">
+            <option value="Active">Active</option>
+            <option value="Finished">Finished</option>
+        </select>
+        <select name="level" id="level">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+            <option value="Urgent">Urgent</option>
+        </select>
+        <input type="date" name="enddate" id="enddate" min="{{current_day}}">
+        <input type="submit" value="Create Project">
+    </form>
+</div>
+
+{% endblock %}

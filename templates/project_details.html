@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %} Project Details {% endblock %}
+
+{% block content %}
+<div class="main_container">
+    <h1>{{ proj_details.title }}</h1>
+    <div class="project_description">
+        <p>{{ proj_details.description }}</p>
+    </div>
+    <div class="stats">
+        <span><b>Total number of tickets: {{total_project_tickets['COUNT(*)']}}</b></span><br>
+        <span><b>Tickets "In Progress": {{in_progress_ticket['COUNT(*)']}}</b></span><br>
+        <span><b>Tickets "Waiting for check": {{not_checked_ticket['COUNT(*)']}}</b></span><br>
+        <span><b>Tickets "Approved": {{approved_ticket['COUNT(*)']}}</b></span><br>
+        <span><b>Finished tickets: {{finished_ticket['COUNT(*)']}}</b></span><br>
+        <span><b><i>Number of Urgent priority tickets: {{urgent_ticket['COUNT(*)']}}</i></b></span><br>
+        <span><b><i>Number of High priority tickets: {{high_ticket['COUNT(*)']}}</i></b></span><br>
+        <span><b><i>Number of Medium priority tickets: {{medium_ticket['COUNT(*)']}}</i></b></span><br>
+        <span><b><i>Number of Low priority tickets: {{low_ticket['COUNT(*)']}}</i></b></span><br>
+    </div>
+    <div class="ticket_list">
+        <table>
+                <thead>
+                    <th>Project</th>
+                    <th>Level</th>
+                    <th>Status</th>
+                    <th>Created at</th>
+                    <th>Deadline</th>
+                    <th>Assigned to</th>
+                </thead>
+                <tbody>
+                    {% for ticket in ticket_list %}
+                        <tr>
+                            <td><a href="#">{{ticket.title}}</a></td>
+                            <td>{{ticket.level}}</td>
+                            <td>{{ticket.status}}</td>
+                            <td>{{ticket.creation_date}}</td>
+                            <td>{{ticket.deadline}}</td>
+                            <td>{{ticket.assigned}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
+</div>
+{% endblock %}
