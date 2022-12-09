@@ -125,6 +125,10 @@ def edit(post_id):
 @app.route('/<int:post_id>/delete')
 def delete(post_id):
     if 'loggedin' in session:
+        conn1 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        conn1.execute("DELETE FROM comments WHERE post_id = %s", (post_id,))
+        conn1.connection.commit()
+
         conn = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         conn.execute("DELETE FROM posts WHERE id = %s", (post_id,))
         conn.connection.commit()
@@ -318,7 +322,8 @@ def project_details(project_id):
         conn2 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         conn2.execute("SELECT COUNT(*) FROM posts WHERE project = %s", (proj_details['title'],))
         total_project_tickets = conn2.fetchone()
-        conn2.execute("SELECT COUNT(*) FROM posts WHERE project = %s AND status = %s", (proj_details['title'], 'In Progress'))
+        conn2.execute("SELECT COUNT(*) FROM posts WHERE project = %s AND status = %s",
+                      (proj_details['title'], 'In Progress'))
         in_progress_ticket = conn2.fetchone()
         conn2.execute("SELECT COUNT(*) FROM posts WHERE project = %s AND status = %s",
                       (proj_details['title'], 'Waiting for Check'))
@@ -342,7 +347,6 @@ def project_details(project_id):
                       (proj_details['title'], 'Low'))
         low_ticket = conn2.fetchone()
 
-
         return render_template(
             'project_details.html',
             proj_details=proj_details,
@@ -359,6 +363,14 @@ def project_details(project_id):
         )
     else:
         return "<h1>Wrong Username/Password! Please try again!</h1>"
+
+
+@app.route('/user/<int:id>')
+def user_page(id):
+    conn = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    conn.execute("SELECT * FROM users WHERE id=%s", (id,))
+    user = conn.fetchone()
+    return render_template("user_details.html", user=user)
 
 
 @app.route('/test')

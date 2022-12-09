@@ -13,7 +13,7 @@
             <tbody>
             {% for user in users %}
                 <tr>
-                    <td><a href="#">{{ user.firstname }} {{ user.lastname }}</a></td>
+                    <td><a href="/user/{{user.id}}">{{ user.firstname }} {{ user.lastname }}</a></td>
                     <td><a href="/user/{{user.id}}/edit">Edit</a></td>
                     <td><a href="/user/{{user.id}}/delete">Delete</a></td>
                 </tr>
