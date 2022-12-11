@@ -4,7 +4,30 @@
 
 {% block content %}
 <div class="main_container">
-    <h1>{{ user.firstname }} {{ user.lastname }}</h1>
+    <div class="user_details">
+        <h3>{{ user.firstname }} {{ user.lastname }}</h3>
+        <h3>{{ user.email }}</h3>
+        <div class="user_image">
+            <img src="" alt="">
+        </div>
+        <div class="edit_button">
+            <a href="/user/{{user.id}}/edit">Edit Profile</a>
+        </div>
+        <div class="upload_image_button">
+            <a href="#">Upload Image</a>
+        </div>
+    </div>
+    <div class="user_statistics">
+        <h4>Total number of tickets: {{total_tkt_nr['COUNT(*)']}}</h4>
+        <h4>Total number of Active tickets: {{total_active_tkt_nr['COUNT(*)']}}</h4>
+        <h4>Total number of tickets "In Progress": {{total_inprogress_tkt_nr['COUNT(*)']}}</h4>
+        <h4>Total number of tickets "Waiting for Approval": {{total_wa_tkt_nr['COUNT(*)']}}</h4>
+        <h4>Total number of tickets "Finished": {{total_archived_tkt_nr['COUNT(*)']}}</h4>
+        <h4>Total number of tickets level "Urgent": {{total_urgent_tkt_nr['COUNT(*)']}}</h4>
+        <h4>Total number of tickets level "High": {{total_high_tkt_nr['COUNT(*)']}}</h4>
+        <h4>Total number of tickets level "Medium": {{total_medium_tkt_nr['COUNT(*)']}}</h4>
+        <h4>Total number of tickets level "Low": {{total_low_tkt_nr['COUNT(*)']}}</h4>
+    </div>
 </div>
 
 {% endblock %}

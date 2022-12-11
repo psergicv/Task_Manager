@@ -370,7 +370,42 @@ def user_page(id):
     conn = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     conn.execute("SELECT * FROM users WHERE id=%s", (id,))
     user = conn.fetchone()
-    return render_template("user_details.html", user=user)
+
+    stat_conn = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    fullname = user['firstname'] + " " + user['lastname']
+    stat_conn.execute("SELECT COUNT(*) FROM posts WHERE assigned = %s", (fullname,))
+    total_tkt_nr = stat_conn.fetchone()
+    stat_conn.execute("SELECT COUNT(*) FROM posts WHERE assigned = %s AND status = 'Active'", (fullname,))
+    total_active_tkt_nr = stat_conn.fetchone()
+    stat_conn.execute("SELECT COUNT(*) FROM posts WHERE assigned = %s AND status = 'In Progress'", (fullname,))
+    total_inprogress_tkt_nr = stat_conn.fetchone()
+    stat_conn.execute("SELECT COUNT(*) FROM posts WHERE assigned = %s AND status = 'Waiting for Approval'", (fullname,))
+    total_wa_tkt_nr = stat_conn.fetchone()
+    stat_conn.execute("SELECT COUNT(*) FROM posts WHERE assigned = %s AND status = 'Archive'", (fullname,))
+    total_archived_tkt_nr = stat_conn.fetchone()
+    stat_conn.execute("SELECT COUNT(*) FROM posts WHERE assigned = %s AND level = 'Urgent'", (fullname,))
+    total_urgent_tkt_nr = stat_conn.fetchone()
+    stat_conn.execute("SELECT COUNT(*) FROM posts WHERE assigned = %s AND level = 'High'", (fullname,))
+    total_high_tkt_nr = stat_conn.fetchone()
+    stat_conn.execute("SELECT COUNT(*) FROM posts WHERE assigned = %s AND level = 'Medium'", (fullname,))
+    total_medium_tkt_nr = stat_conn.fetchone()
+    stat_conn.execute("SELECT COUNT(*) FROM posts WHERE assigned = %s AND level = 'Low'", (fullname,))
+    total_low_tkt_nr = stat_conn.fetchone()
+
+
+
+    return render_template("user_details.html",
+                           user=user,
+                           total_tkt_nr=total_tkt_nr,
+                           total_active_tkt_nr=total_active_tkt_nr,
+                           total_inprogress_tkt_nr=total_inprogress_tkt_nr,
+                           total_wa_tkt_nr=total_wa_tkt_nr,
+                           total_archived_tkt_nr=total_archived_tkt_nr,
+                           total_urgent_tkt_nr=total_urgent_tkt_nr,
+                           total_high_tkt_nr=total_high_tkt_nr,
+                           total_medium_tkt_nr=total_medium_tkt_nr,
+                           total_low_tkt_nr=total_low_tkt_nr
+                           )
 
 
 @app.route('/test')
