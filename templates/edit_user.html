@@ -5,9 +5,9 @@
 {% block content %}
 <div class="main_container">
     <form method="POST">
-        <input type="text" id="firstname" name="firstname" value="{{old_data.firstname}}" required>
-        <input type="text" id="lastname" name="lastname" value="{{old_data.lastname}}" required>
-        <input type="email" id="email" name="email" value="{{old_data.email}}" required>
+        <input class="feedback-input" type="text" id="firstname" name="firstname" value="{{old_data.firstname}}" required>
+        <input class="feedback-input" type="text" id="lastname" name="lastname" value="{{old_data.lastname}}" required>
+        <input class="feedback-input" type="email" id="email" name="email" value="{{old_data.email}}" required>
         <input type="submit" value="Save">
     </form>
 </div>

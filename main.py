@@ -392,8 +392,6 @@ def user_page(id):
     stat_conn.execute("SELECT COUNT(*) FROM posts WHERE assigned = %s AND level = 'Low'", (fullname,))
     total_low_tkt_nr = stat_conn.fetchone()
 
-
-
     return render_template("user_details.html",
                            user=user,
                            total_tkt_nr=total_tkt_nr,

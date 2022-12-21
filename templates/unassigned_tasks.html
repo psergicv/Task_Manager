@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="main_container">
-    <table>
+    <table class="main_table">
             <thead>
                 <th>Task Title</th>
                 <th>Status</th>
@@ -14,12 +14,12 @@
             </thead>
             <tbody>
                 {% for task in tasks %}
-                    <tr>
-                        <td><a href="/personal_task_list/{{ task.id }}">{{ task.title }}</a></td>
-                        <td>{{ task.status }}</td>
-                        <td>{{ task.level }}</td>
-                        <td>{{ task.creation_date }}</td>
-                        <td>{{ task.deadline }}</td>
+                    <tr class="table_container">
+                        <td class="cell_container"><a href="/personal_task_list/{{ task.id }}">{{ task.title }}</a></td>
+                        <td class="cell_container">{{ task.status }}</td>
+                        <td class="cell_container">{{ task.level }}</td>
+                        <td class="cell_container">{{ task.creation_date }}</td>
+                        <td class="cell_container">{{ task.deadline }}</td>
                     </tr>
                 {% endfor %}
             </tbody>

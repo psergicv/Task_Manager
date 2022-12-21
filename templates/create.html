@@ -6,29 +6,29 @@
 <div class="main_container">
     <div class="create_form">
         <form action="" method="POST">
-            <input type="text" id="title" name="title" placeholder="Title" required><br>
-            <textarea name="message" id="message" cols="40" rows="10" placeholder="Write the text here..." required></textarea><br>
-            <select name="status" id="status">
+            <input type="text" class="feedback-input" id="title" name="title" placeholder="Title" required><br>
+            <textarea class="feedback-input" name="message" id="message" cols="40" rows="10" placeholder="Write the text here..." required></textarea><br>
+            <select name="status" class="feedback-input" id="status">
                 <option value="Opened">Opened</option>
                 <option value="In Progress">In Progress</option>
                 <option value="Waiting for check">Waiting for Check</option>
                 <option value="Approved">Approved</option>
                 <option value="Archive">Archive</option>
             </select><br>
-            <input type="date" id="date" name="date" min="{{ current_day }}">
-            <select name="assigned" id="assigned">
+            <input type="date" class="feedback-input" id="date" name="date" min="{{ current_day }}">
+            <select name="assigned" class="feedback-input" id="assigned">
                 <option value="unassigned">Unassigned</option>
                 {% for user in users %}
                 <option value="{{user.firstname}} {{user.lastname}}">{{user.firstname}} {{user.lastname}}</option>
                 {% endfor %}
             </select><br>
-            <select name="level" id="level">
+            <select class="feedback-input" name="level" id="level">
                 <option value="Low">Low</option>
                 <option value="Medium">Medium</option>
                 <option value="High">High</option>
                 <option value="Urgent">Urgent</option>
             </select>
-            <select name="assigned_project" id="assigned_project">
+            <select class="feedback-input" name="assigned_project" id="assigned_project">
                 <option value="Single Task">Single Task</option>
                 {% for project_title in project_titles %}
                     <option value="{{ project_title.title }}">{{ project_title.title }}</option>

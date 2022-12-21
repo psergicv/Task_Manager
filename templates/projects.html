@@ -7,7 +7,7 @@
     <div class="project_create_button">
         <a href="/create_project">Create Project</a>
         <div class="project_list">
-            <table>
+            <table class="main_table">
                 <thead>
                     <th>Project</th>
                     <th>Status</th>
@@ -17,12 +17,12 @@
                 </thead>
                 <tbody>
                     {% for project in projects_list %}
-                        <tr>
-                            <td><a href="/project/id={{project.id}}">{{ project.title }}</a></td>
-                            <td>{{ project.status }}</td>
-                            <td>{{ project.level }}</td>
-                            <td>{{ project.author }}</td>
-                            <td>{{ project.end_date }}</td>
+                        <tr class="table_container">
+                            <td class="cell_container"><a href="/project/id={{project.id}}">{{ project.title }}</a></td>
+                            <td class="cell_container">{{ project.status }}</td>
+                            <td class="cell_container">{{ project.level }}</td>
+                            <td class="cell_container">{{ project.author }}</td>
+                            <td class="cell_container">{{ project.end_date }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>
