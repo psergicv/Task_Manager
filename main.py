@@ -232,7 +232,7 @@ def detailed_archive(post_id):
         conn = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         conn.execute("SELECT * FROM posts WHERE status = 'Archive' AND id = %s", (post_id,))
         archived_task = conn.fetchone()
-        render_template("personal_tasks.html", archived_task=archived_task)
+        return render_template("detailed_post.html", archived_task=archived_task)
     else:
         return redirect(url_for('login'))
 
@@ -260,7 +260,7 @@ def login():
 def unassigned_tasks():
     if 'loggedin' in session:
         conn = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        conn.execute("SELECT * FROM posts WHERE assigned = 'unassigned'")
+        conn.execute("SELECT * FROM posts WHERE assigned = 'unassigned' AND status != 'Archive'")
         tasks = conn.fetchall()
         return render_template('unassigned_tasks.html', tasks=tasks)
     else:

@@ -14,9 +14,9 @@ body{
   font-weight: 500;
 }
 
-nav{
+.navbar{
   background:#08295e;
-  position:absolute;
+  position:fixed;
   top:0;
   bottom:0;
   height:100%;
@@ -116,49 +116,6 @@ a:hover{
 .task_list {
   padding: 30px;
   width: 600px;
-}
-
-.fixed_headers {
-  width: 750px;
-  table-layout: fixed;
-  border-collapse: collapse;
-}
-
-th {
-  text-decoration: none;
-}
-
-th, td {
-  padding: 5px;
-  text-align: left;
-}
-
-td:nth-child(1), th:nth-child(1) {
-  min-width: 500px;
-}
-
-td:nth-child(2), th:nth-child(2) {
-  min-width: 150px;
-}
-
-td:nth-child(3), th:nth-child(3) {
-  width: 150px;
-}
-
-thead {
-  background-color: #333;
-  color: #FDFDFD;
-}
-
-tr {
-  display: block;
-  position: relative;
-}
-
-tbody {
-  display: block;
-  overflow: auto;
-  width: 100%;
 }
 
 form {
@@ -263,21 +220,256 @@ textarea {
     margin: 5px 10px;
 }
 
+.buttons {
+  text-align: center;
+  margin-left: -50px; /* added to move the buttons 25px to the left */
+  position: relative; /* added to position the buttons */
+}
+
+.pt-button {
+    background-color: #32a852;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 10px;
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid #32a852;
+    border-radius: 5px;
+}
+
 .task_legenda {
-    margin-left: 340px;
-    width: 500px;
+  text-align: center;
 }
 
-.cell_head {
-    width: 5px;
-    background-color: #496940;
+.task_legenda_main_container {
+  margin: 20px auto; 
+  width: 40%; /* changed the width */
+  border-collapse: collapse;
+  right: 30px; /* added to move the entire block 10px to the left */
+  position: relative; /* added to position the block */
 }
 
-.cell_body {
-    width: 10px;
-    background-color: #81bf6f;
+.task_legenda_main_container td {
+  border: 1px solid #193a9c;
+  padding: 10px;
 }
 
-.task_legenda_container {
-    width: 150px;
+.task_legenda_main_container .cell_head {
+  width: 35%;
+  background-color: #193a9c;
+  color: white;
+  font-weight: bold;
 }
+
+.task_legenda_main_container .cell_body {
+  background-color: #ede9ce;
+}
+
+
+.add_comment {
+  margin-left: -45px;
+  position: relative;
+}
+
+.task_title {
+  text-align: center;
+  font-size: 2em; /* increased the font size */
+  font-weight: bold; /* added bold style */
+  font-family: basckerville;
+  text-transform: uppercase; /* added text transformation to uppercase */
+  letter-spacing: 2px; /* added 2px space between letters */
+  margin-bottom: 20px; /* added margin bottom to separate from the next element */
+  margin-left: -45px;
+  position: relative;
+}
+
+.task_list .main_table {
+  width: calc(100% + 400px); /* set the width to 100% to fill the parent container */
+  border-collapse: collapse; /* collapse the borders for a cleaner look */
+  font-size: 1.2em; /* increase the font size for better readability */
+  margin-bottom: 20px; /* added margin bottom to separate from the next element */
+}
+
+.task_list .main_table th {
+  background-color: #193a9c; /* added a background color for the header row */
+  color: white; /* set the text color to white */
+  font-weight: bold; /* added bold style to the header row */
+}
+
+.task_list .main_table td {
+  padding: 10px; /* added padding to the cells for better spacing */
+  border: 1px solid #193a9c; /* added a border to the cells */
+  width: 105px;
+}
+
+.task_list .main_table td a {
+  color: #193a9c; /* added a color for the links in the table */
+  text-decoration: none; /* removed the underline from the links */
+}
+
+
+.main_add_user_container {
+  width: 65%; /* Adjust as needed */
+  margin: 0 auto;
+  text-align: center;
+}
+
+.add_user_form {
+  display: inline-block;
+  width: 100%;
+  margin-righ: -150px;
+  position: relative;
+}
+
+.add_user_input {
+  display: block;
+  margin: 10px auto;
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+}
+
+.add_user_button {
+  background-color: #32a852;
+  color: #fff;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Member list table */
+.member_list_container {
+  margin-left: 525px;
+  position: relative;
+  width: 80%;
+  }
+  
+  .member_list_table {
+  border-collapse: collapse;
+  width: 600px;
+  }
+  
+  .member_list_table_head {
+  background-color: #193a9c;
+  color: white;
+  }
+  
+  .member_list_table_head th {
+  border: 1px solid black;
+  padding: 10px;
+  }
+  
+  .member_list_table_container {
+  border: 1px solid black;
+  }
+  
+  .member_list_cell_container {
+  padding: 10px;
+  }
+  
+  .member_list_cell_container a {
+  color: #32a852;
+  text-decoration: none;
+  }
+
+
+  /* Projects page styles */
+  .project_list {
+    text-align: center; /* center the table */
+    margin-top: 25px;
+  }
+  
+  .projects_main_table {
+    width: 75%; /* make the table slightly smaller */
+    border-collapse: collapse;
+    margin: 0 auto; /* center the table within its parent container */
+  }
+  
+  .projects_main_table th {
+    background-color: #193a9c; /* give the table headers a different background color */
+    color: white; /* make the text white for better contrast */
+    padding: 12px;
+  }
+  
+  .projects_main_table td {
+    background-color: #ede9ce; /* give the table cells a different background color */
+    padding: 12px;
+  }
+  
+  .projects_cell_container a {
+    color: #32a852; /* make the links within the table cells a different color */
+  }
+
+  .create_project_btn {
+    background-color: #3498db; /* change the background color of the button */
+    color: white; /* change the text color */
+    padding: 10px 20px; /* add some padding */
+    border-radius: 5px; /* add rounded corners */
+    text-decoration: none; /* remove underline */
+    text-align: center; /* center the text */
+    display: block; /* change the display property to block */
+    margin: 0 auto; /* center the button horizontally */
+  }
+  
+
+  /* Project details page styles */
+  /* Project main container styles */
+  .project_main_container {
+    width: 80%; /* Set the width of the container */
+    margin-left: 250px; /* Center the container horizontally */
+    padding: 20px; /* Add some padding to the container */
+    background-color: #f2f2f2; /* Change the background color of the container */
+    border-radius: 10px; /* Add rounded corners to the container */
+  }
+
+  /* Project title styles */
+  .project_main_container h1 {
+    text-align: center; /* Center the title text */
+    margin-bottom: 20px; /* Add some margin to the bottom of the title */
+    font-size: 36px; /* Increase the font size of the title */
+  }
+
+  /* Project description styles */
+  .project_description {
+    margin-bottom: 20px; /* Add some margin to the bottom of the description */
+    font-size: 18px; /* Increase the font size of the description */
+  }
+
+  /* Project stats styles */
+  .project_stats {
+    margin-bottom: 20px; /* Add some margin to the bottom of the stats */
+    font-size: 18px; /* Increase the font size of the stats */
+  }
+
+  /* Project ticket list styles */
+  .project_ticket_list {
+    width: 100%; /* Set the width of the ticket list */
+  }
+
+  /* Project ticket list table styles */
+  .project_ticket_list table {
+    width: 100%; /* Set the width of the table */
+    border-collapse: collapse; /* Remove the default cell spacing of the table */
+  }
+
+  /* Project ticket list table head styles */
+  .project_ticket_list thead th {
+    background-color: #3498db; /* Change the background color of the table head */
+    color: white; /* Change the text color of the table head */
+    padding: 10px; /* Add some padding to the table head */
+    text-align: center; /* Center the text of the table head */
+  }
+
+  /* Project ticket list table cell styles */
+  .project_ticket_list_cell {
+    padding: 10px; /* Add some padding to the table cells */
+    text-align: center; /* Center the text of the table cells */
+    border: 1px solid #ddd; /* Add a border to the table cells */
+    }
+    
+    /* Project ticket list table row styles */
+    .project_ticket_list tr:nth-child(even) {
+    background-color: #f2f2f2; /* Change the background color of the even rows */
+    }

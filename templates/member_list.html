@@ -3,23 +3,23 @@
 {% block title %} Task Manager - Member List {% endblock %}
 
 {% block content %}
-<div class="main_container">
-    <table class="fixed_headers">
-            <thead class="table_head">
+<div class="member_list_container">
+    <table class="member_list_table">
+        <thead class="member_list_table_head">
             {% for header in headers %}
                 <th>{{header}}</th>
             {% endfor %}
-            </thead>
-            <tbody>
+        </thead>
+        <tbody>
             {% for user in users %}
-                <tr class="table_container">
-                    <td class="cell_container"><a href="/user/{{user.id}}">{{ user.firstname }} {{ user.lastname }}</a></td>
-                    <td class="cell_container"><a href="/user/{{user.id}}/edit">Edit</a></td>
-                    <td class="cell_container"><a href="/user/{{user.id}}/delete">Delete</a></td>
+                <tr class="member_list_table_container">
+                    <td class="member_list_cell_container"><a href="/user/{{user.id}}">{{ user.firstname }} {{ user.lastname }}</a></td>
+                    <td class="member_list_cell_container"><a href="/user/{{user.id}}/edit">Edit</a></td>
+                    <td class="member_list_cell_container"><a href="/user/{{user.id}}/delete">Delete</a></td>
                 </tr>
             {% endfor %}
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </div>
 
 {% endblock %}

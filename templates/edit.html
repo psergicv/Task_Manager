@@ -17,6 +17,7 @@
         </select><br>
         <input class="feedback-input" type="date" id="date" name="date" value="{{ old_data['deadline'] }}">
         <select class="feedback-input" name="assigned" id="assigned">
+            <option value="{{old_data['assigned']}}">{{old_data['assigned']}}</option>
             <option value="unassigned">Unassigned</option>
             {% for user in users %}
                 <option value="{{user.firstname}} {{user.lastname}}">{{user.firstname}} {{user.lastname}}</option>

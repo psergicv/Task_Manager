@@ -3,12 +3,12 @@
 {% block title %} Project Details {% endblock %}
 
 {% block content %}
-<div class="main_container">
-    <h1>{{ proj_details.title }}</h1>
-    <div class="project_description">
-        <p>{{ proj_details.description }}</p>
+<div class="project_main_container">
+    <h1 class="task_title">{{ proj_details.title }}</h1>
+    <div class="task_body">
+        <p class="task_text">{{ proj_details.description }}</p>
     </div>
-    <div class="stats">
+    <div class="project_stats">
         <span><b>Total number of tickets: {{total_project_tickets['COUNT(*)']}}</b></span><br>
         <span><b>Tickets "In Progress": {{in_progress_ticket['COUNT(*)']}}</b></span><br>
         <span><b>Tickets "Waiting for check": {{not_checked_ticket['COUNT(*)']}}</b></span><br>
@@ -19,7 +19,7 @@
         <span><b><i>Number of Medium priority tickets: {{medium_ticket['COUNT(*)']}}</i></b></span><br>
         <span><b><i>Number of Low priority tickets: {{low_ticket['COUNT(*)']}}</i></b></span><br>
     </div>
-    <div class="ticket_list">
+    <div class="project_ticket_list">
         <table>
                 <thead>
                     <th>Project</th>
@@ -32,12 +32,12 @@
                 <tbody>
                     {% for ticket in ticket_list %}
                         <tr>
-                            <td><a href="#">{{ticket.title}}</a></td>
-                            <td>{{ticket.level}}</td>
-                            <td>{{ticket.status}}</td>
-                            <td>{{ticket.creation_date}}</td>
-                            <td>{{ticket.deadline}}</td>
-                            <td>{{ticket.assigned}}</td>
+                            <td class="project_ticket_list_cell"><a href="#">{{ticket.title}}</a></td>
+                            <td class="project_ticket_list_cell">{{ticket.level}}</td>
+                            <td class="project_ticket_list_cell">{{ticket.status}}</td>
+                            <td class="project_ticket_list_cell">{{ticket.creation_date}}</td>
+                            <td class="project_ticket_list_cell">{{ticket.deadline}}</td>
+                            <td class="project_ticket_list_cell">{{ticket.assigned}}</td>
                         </tr>
                     {% endfor %}
                 </tbody>
