@@ -406,6 +406,11 @@ def user_page(id):
                            )
 
 
+@app.route('/updates')
+def updates():
+    return "<h2>Test</h2>"
+
+
 @app.route('/test')
 def test_page():
     return render_template("test.html")
