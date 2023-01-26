@@ -14,7 +14,7 @@
             <tbody>
                 {% for task in archived_tasks %}
                     <tr class="table_container">
-                        <td class="cell_container"><a href="/archive/{{task.id}}">{{ task.title }}</a></td>
+                        <td class="cell_container"><a href="/archive/detailed_post/{{task.id}}">{{ task.title }}</a></td>
                         <td class="cell_container">{{ task.status }}</td>
                         <td class="cell_container">{{ task.level }}</td>
                     </tr>

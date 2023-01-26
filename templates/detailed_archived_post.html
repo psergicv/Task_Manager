@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}Archived Task - Details{% endblock %}
+
+{% block content %}
+<div class="main_container">
+    <div class="detailed_post_container">
+        <h1 class="task_title">{{archived_task['title']}}</h1>
+        <div class="task_body">
+            <p class="task_text">{{archived_task['message']}}</p>
+        </div>
+
+        <div class="task_legenda">
+            <table class="task_legenda_main_container">
+                <tr class="task_legenda_container">
+                    <td class="cell_head">Assigned</td>
+                    <td class="cell_body">{{archived_task['assigned']}}</td>
+                </tr>
+                <tr>
+                    <td class="cell_head">Status</td>
+                    <td class="cell_body">{{archived_task['status']}}</td>
+                </tr>
+                <tr>
+                    <td class="cell_head">Level</td>
+                    <td class="cell_body">{{archived_task['level']}}</td>
+                </tr>
+                <tr>
+                    <td class="cell_head">Created by</td>
+                    <td class="cell_body">{{archived_task['author']}}</td>
+                </tr>
+                <tr>
+                    <td class="cell_head">Creation date</td>
+                    <td class="cell_body">{{archived_task['creation_date']}}</td>
+                </tr>
+                <tr>
+                    <td class="cell_head">Deadline</td>
+                    <td class="cell_body">{{archived_task['deadline']}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="buttons">
+            <a href="/{{archived_task['id']}}/restore" class="pt-button">Restore</a>
+            <a href="/{{archived_task['id']}}/delete" class="pt-button">Delete</a>
+            <a href="/personal_task_list/{{archived_task['assigned']}}" class="pt-button">Back</a>
+        </div>
+
+
+<!--        <div class="comment_list">-->
+<!--            {% for comment in comments %}-->
+<!--                <div class="comment_text">-->
+<!--                    <p><i>{{ comment['message'] }}</i></p><br>-->
+<!--                </div>-->
+<!--                <div class="comment_details">-->
+<!--                    <ul class="ul_comment">-->
+<!--                        <li class="li_comment"><p><i>{{ comment['author'] }}</i></p></li>-->
+<!--                        <li class="li_comment"><p><i>{{ comment['creation_date'] }}</i></p></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--            {% endfor %}-->
+<!--        </div>-->
+
+<!--        <div class="add_comment">-->
+<!--            <form  action="" method="POST">-->
+<!--                <textarea class="feedback-input" name="message" id="message" cols="30" rows="10" required></textarea><br>-->
+<!--                <input type="submit" value="Send"><br>-->
+<!--        </form>-->
+        </div>
+    </div>
+    </div>
+
+</div>
+{% endblock %}

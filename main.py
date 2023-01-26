@@ -122,6 +122,15 @@ def edit(post_id):
         return redirect(url_for('login'))
 
 
+@app.route('/<int:post_id>/restore')
+def post_restore(post_id):
+    conn = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    conn.execute("UPDATE posts SET status = %s, assigned = %s  WHERE id= %s", ("In Progress", "unassigned", post_id))
+    conn.connection.commit()
+    conn.close()
+    return redirect(url_for('index'))
+
+
 @app.route('/<int:post_id>/delete')
 def delete(post_id):
     if 'loggedin' in session:
@@ -226,13 +235,13 @@ def archive():
         return redirect(url_for('login'))
 
 
-@app.route('/archive/<int:post_id>')
+@app.route('/archive/detailed_post/<int:post_id>')
 def detailed_archive(post_id):
     if 'loggedin' in session:
         conn = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         conn.execute("SELECT * FROM posts WHERE status = 'Archive' AND id = %s", (post_id,))
         archived_task = conn.fetchone()
-        return render_template("detailed_post.html", archived_task=archived_task)
+        return render_template("detailed_archived_post.html", archived_task=archived_task)
     else:
         return redirect(url_for('login'))
 
