@@ -312,7 +312,7 @@ def create_project():
             conn.connection.commit()
             conn.close()
             return redirect(url_for('projects'))
-        return render_template('create_project.html', current_day=current_day)
+        return render_template('project_create.html', current_day=current_day)
     else:
         return "<h1>Wrong Username/Password! Please try again!</h1>"
 
@@ -372,6 +372,33 @@ def project_details(project_id):
         )
     else:
         return "<h1>Wrong Username/Password! Please try again!</h1>"
+
+
+@app.route('/project/<int:id>/edit', methods=['GET', 'POST'])
+def project_edit(id):
+    if 'loggedin' in session:
+        conn = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        conn.execute("SELECT * FROM projects WHERE id = %s", (id,))
+        old_data = conn.fetchone()
+
+        if request.method == "POST":
+            title = request.form['title']
+            description = request.form['description']
+            conn.execute(
+                "UPDATE projects SET title = %s, description = %s WHERE id= %s", (title, description, id)
+            )
+            conn.connection.commit()
+            conn.close()
+            return redirect(url_for('projects'))
+    return render_template('project_edit.html', old_data=old_data)
+
+
+@app.route('/project/<int:id>/delete')
+def project_delete(id):
+    conn = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    conn.execute("DELETE FROM projects WHERE id= %s", (id,))
+    conn.connection.commit()
+    return redirect(url_for('projects'))
 
 
 @app.route('/user/<int:id>')

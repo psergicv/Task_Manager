@@ -10,6 +10,8 @@
                 <th>Task Title</th>
                 <th>Status</th>
                 <th>Level</th>
+                <th>Created At</th>
+                <th>Deadline</th>
             </thead>
             <tbody>
                 {% for task in tasks %}
@@ -17,6 +19,8 @@
                         <td class="cell_container"><a href="/personal_task_list/{{ task.id }}">{{ task.title }}</a></td>
                         <td class="cell_container">{{ task.status }}</td>
                         <td class="cell_container">{{ task.level }}</td>
+                        <td class="cell_container">{{ task.creation_date }}</td>
+                        <td class="cell_container">{{ task.deadline }}</td>
                     </tr>
                 {% endfor %}
             </tbody>

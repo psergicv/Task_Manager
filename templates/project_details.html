@@ -8,6 +8,10 @@
     <div class="task_body">
         <p class="task_text">{{ proj_details.description }}</p>
     </div>
+    <div class="buttons">
+        <a href="/project/{{proj_details['id']}}/edit" class="pt-button">Edit</a>
+        <a href="/project/{{proj_details['id']}}/delete" class="pt-button">Delete</a>
+    </div>
     <div class="project_stats">
         <span><b>Total number of tickets: {{total_project_tickets['COUNT(*)']}}</b></span><br>
         <span><b>Tickets "In Progress": {{in_progress_ticket['COUNT(*)']}}</b></span><br>

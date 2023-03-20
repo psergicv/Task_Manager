@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %} Edit Project Details {% endblock %}
+
+{% block content %}
+<div class="main_container">
+    <form action="" method="POST">
+        <input class="feedback-input" type="text" id="title" name="title" value="{{old_data['title']}}" required><br>
+        <textarea class="feedback-input" name="description" id="description" cols="40" rows="10" required>{{old_data['description']}}</textarea><br>
+        <input type="submit" value="SAVE"><br>
+    </form>
+</div>
+{% endblock %}
