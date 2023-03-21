@@ -473,3 +473,121 @@ textarea {
     .project_ticket_list tr:nth-child(even) {
     background-color: #f2f2f2; /* Change the background color of the even rows */
     }
+
+/* User Details Page */
+
+.page_wrapper {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Container and layout */
+.main_user_details_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.user_details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.user_image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.user_image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.user_info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user_fullname,
+.user_email {
+    margin: 0;
+    width: 100%;
+}
+
+.user_email {
+    margin-bottom: 10px;
+}
+
+/* Button styles */
+.edit_button,
+.upload_image_button {
+    margin-top: 10px;
+}
+
+.edit_button a,
+.upload_image_button a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.edit_button a:hover,
+.upload_image_button a:hover {
+    background-color: #45a049;
+}
+
+/* Table styles */
+.user_statistics {
+    width: 100%;
+    margin-left: 150px;
+}
+
+.ticket_table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+}
+
+.ticket_table th,
+.ticket_table td {
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+.ticket_table thead {
+    background-color: #f2f2f2;
+}
+
+.ticket_table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.ticket_table tbody tr:hover {
+    background-color: #ddd;
+}
+
+
+
+
+
+
+
+
+

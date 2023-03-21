@@ -3,31 +3,74 @@
 {% block title %} Task Manager - Member Details {% endblock %}
 
 {% block content %}
-<div class="main_container">
-    <div class="user_details">
-        <h3>{{ user.firstname }} {{ user.lastname }}</h3>
-        <h3>{{ user.email }}</h3>
-        <div class="user_image">
-            <img src="" alt="">
+<div class="page_wrapper">
+    <div class="main_user_details_container">
+        <div class="user_details">
+            <div class="user_image">
+                <img src="" alt="">
+            </div>
+            <div class="user_info">
+                <h3 class="user_fullname">{{ user.firstname }} {{ user.lastname }}</h3>
+                <h3 class="user_email">{{ user.email }}</h3>
+                <div class="edit_button">
+                    <a href="/user/{{user.id}}/edit">Edit Profile</a>
+                </div>
+                <div class="upload_image_button">
+                    <a href="#">Upload Image</a>
+                </div>
+            </div>
         </div>
-        <div class="edit_button">
-            <a href="/user/{{user.id}}/edit">Edit Profile</a>
-        </div>
-        <div class="upload_image_button">
-            <a href="#">Upload Image</a>
-        </div>
-    </div>
     <div class="user_statistics">
-        <h4>Total number of tickets: {{total_tkt_nr['COUNT(*)']}}</h4>
-        <h4>Total number of Active tickets: {{total_active_tkt_nr['COUNT(*)']}}</h4>
-        <h4>Total number of tickets "In Progress": {{total_inprogress_tkt_nr['COUNT(*)']}}</h4>
-        <h4>Total number of tickets "Waiting for Approval": {{total_wa_tkt_nr['COUNT(*)']}}</h4>
-        <h4>Total number of tickets "Finished": {{total_archived_tkt_nr['COUNT(*)']}}</h4>
-        <h4>Total number of tickets level "Urgent": {{total_urgent_tkt_nr['COUNT(*)']}}</h4>
-        <h4>Total number of tickets level "High": {{total_high_tkt_nr['COUNT(*)']}}</h4>
-        <h4>Total number of tickets level "Medium": {{total_medium_tkt_nr['COUNT(*)']}}</h4>
-        <h4>Total number of tickets level "Low": {{total_low_tkt_nr['COUNT(*)']}}</h4>
+        <table class="ticket_table">
+            <thead>
+                <tr>
+                    <th class="ticket_status">Ticket Status</th>
+                    <th class="ticket_number">Total Number</th>
+                </tr>
+            </thead>
+        <tbody>
+            <tr>
+                <td class="ticket_status">Total number of tickets</td>
+                <td class="ticket_number">{{total_tkt_nr['COUNT(*)']}}</td>
+            </tr>
+            <tr>
+                <td class="ticket_status">Total number of active tickets</td>
+                <td class="ticket_number">{{total_active_tkt_nr['COUNT(*)']}}</td>
+            </tr>
+            <tr>
+                <td class="ticket_status">Total number of tickets "In Progress"</td>
+                <td class="ticket_number">{{total_inprogress_tkt_nr['COUNT(*)']}}</td>
+            </tr>
+            <tr>
+                <td class="ticket_status">Total number of tickets "Waiting for Approval"</td>
+                <td class="ticket_number">{{total_wa_tkt_nr['COUNT(*)']}}</td>
+            </tr>
+            <tr>
+                <td class="ticket_status">Total number of tickets "Finished"</td>
+                <td class="ticket_number">{{total_archived_tkt_nr['COUNT(*)']}}</td>
+            </tr>
+            <tr>
+                <td class="ticket_status">Total number of tickets level "Urgent"</td>
+                <td class="ticket_number">{{total_urgent_tkt_nr['COUNT(*)']}}</td>
+            </tr>
+            <tr>
+                <td class="ticket_status">Total number of tickets level "High"</td>
+                <td class="ticket_number">{{total_high_tkt_nr['COUNT(*)']}}</td>
+            </tr>
+            <tr>
+                <td class="ticket_status">Total number of tickets level "Medium"</td>
+                <td class="ticket_number">{{total_medium_tkt_nr['COUNT(*)']}}</td>
+            </tr>
+            <tr>
+                <td class="ticket_status">Total number of tickets level "Low"</td>
+                <td class="ticket_number">{{total_low_tkt_nr['COUNT(*)']}}</td>
+            </tr>
+        </tbody>
+        </table>
     </div>
 </div>
+</div>
+
+
 
 {% endblock %}
