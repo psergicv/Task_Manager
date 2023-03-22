@@ -13,15 +13,46 @@
         <a href="/project/{{proj_details['id']}}/delete" class="pt-button">Delete</a>
     </div>
     <div class="project_stats">
-        <span><b>Total number of tickets: {{total_project_tickets['COUNT(*)']}}</b></span><br>
-        <span><b>Tickets "In Progress": {{in_progress_ticket['COUNT(*)']}}</b></span><br>
-        <span><b>Tickets "Waiting for check": {{not_checked_ticket['COUNT(*)']}}</b></span><br>
-        <span><b>Tickets "Approved": {{approved_ticket['COUNT(*)']}}</b></span><br>
-        <span><b>Finished tickets: {{finished_ticket['COUNT(*)']}}</b></span><br>
-        <span><b><i>Number of Urgent priority tickets: {{urgent_ticket['COUNT(*)']}}</i></b></span><br>
-        <span><b><i>Number of High priority tickets: {{high_ticket['COUNT(*)']}}</i></b></span><br>
-        <span><b><i>Number of Medium priority tickets: {{medium_ticket['COUNT(*)']}}</i></b></span><br>
-        <span><b><i>Number of Low priority tickets: {{low_ticket['COUNT(*)']}}</i></b></span><br>
+        <table class="stats-table">
+            <tbody>
+                <tr class="stats-row">
+                    <td>Total number of tickets:</td>
+                    <td>{{total_project_tickets['COUNT(*)']}}</td>
+                </tr>
+                <tr class="stats-row">
+                    <td>Tickets "In Progress":</td>
+                    <td>{{in_progress_ticket['COUNT(*)']}}</td>
+                </tr>
+                <tr class="stats-row">
+                    <td>Tickets "Waiting for check":</td>
+                    <td>{{not_checked_ticket['COUNT(*)']}}</td>
+                </tr>
+                <tr class="stats-row">
+                    <td>Tickets "Approved":</td>
+                    <td>{{approved_ticket['COUNT(*)']}}</td>
+                </tr>
+                <tr class="stats-row">
+                    <td>Finished tickets:</td>
+                    <td>{{finished_ticket['COUNT(*)']}}</td>
+                </tr>
+                <tr class="stats-row priority">
+                    <td>Number of Urgent priority tickets:</td>
+                    <td>{{urgent_ticket['COUNT(*)']}}</td>
+                </tr>
+                <tr class="stats-row priority">
+                    <td>Number of High priority tickets:</td>
+                    <td>{{high_ticket['COUNT(*)']}}</td>
+                </tr>
+                <tr class="stats-row priority">
+                    <td>Number of Medium priority tickets:</td>
+                    <td>{{medium_ticket['COUNT(*)']}}</td>
+                </tr>
+                <tr class="stats-row priority">
+                    <td>Number of Low priority tickets:</td>
+                    <td>{{low_ticket['COUNT(*)']}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <div class="project_ticket_list">
         <table>

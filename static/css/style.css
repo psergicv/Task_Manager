@@ -583,6 +583,46 @@ textarea {
     background-color: #ddd;
 }
 
+/* Project Details Styles */
+
+.project_stats {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+.stats-table {
+  border-collapse: collapse;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 500px;
+  display: inline-table;
+}
+
+.stats-row {
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.stats-row:last-child {
+  border-bottom: none;
+}
+
+.stats-row td {
+  padding: 10px;
+}
+
+.stats-row.priority {
+  font-style: italic;
+  color: #f44336;
+}
+
+.stats-row:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
 
 
 
