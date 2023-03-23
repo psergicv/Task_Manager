@@ -23,11 +23,11 @@ To run this project, you will need:
 - MySQL
 
 <h3>Installation</h3>
-1. Clone the repository: git clone https://github.com/psergicv/Task_Manager.git
-2. Install the required dependencies: pip install -r requirements.txt
-3. Create a MySQL database and configure the database settings in config.py.
-4. Run the following command to start the application: python app.py
-5. Open your browser and navigate to http://localhost:5000
+- Clone the repository: git clone https://github.com/psergicv/Task_Manager.git
+- Install the required dependencies: pip install -r requirements.txt
+- Create a MySQL database and configure the database settings in config.py.
+- Run the following command to start the application: python app.py
+- Open your browser and navigate to http://localhost:5000
 
 
 <h1>Usage</h1>
