@@ -384,8 +384,12 @@ def project_edit(id):
         if request.method == "POST":
             title = request.form['title']
             description = request.form['description']
+            status = request.form['status']
+            level = request.form['level']
+            deadline = request.form['date']
             conn.execute(
-                "UPDATE projects SET title = %s, description = %s WHERE id= %s", (title, description, id)
+                "UPDATE projects SET title = %s, description = %s, status = %s, level = %s, end_date = %s WHERE id= %s",
+                (title, description, status, level, deadline, id)
             )
             conn.connection.commit()
             conn.close()

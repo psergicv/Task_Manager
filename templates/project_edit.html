@@ -7,6 +7,22 @@
     <form action="" method="POST">
         <input class="feedback-input" type="text" id="title" name="title" value="{{old_data['title']}}" required><br>
         <textarea class="feedback-input" name="description" id="description" cols="40" rows="10" required>{{old_data['description']}}</textarea><br>
+        <select class="feedback-input" name="status" id="status">
+            <option value="{{old_data['status']}}">{{old_data['status']}}</option>
+            <option value="Opened">Opened</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Waiting for check">Waiting for Check</option>
+            <option value="Approved">Approved</option>
+            <option value="Archive">Archive</option>
+        </select><br>
+        <select class="feedback-input" name="level" id="level">
+                <option value="{{old_data['level']}}">{{old_data['level']}}</option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+                <option value="Urgent">Urgent</option>
+        </select><br>
+        <input class="feedback-input" type="date" id="date" name="date" value="{{ old_data['deadline'] }}">
         <input type="submit" value="SAVE"><br>
     </form>
 </div>
