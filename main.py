@@ -94,7 +94,7 @@ def post(post_id):
 def edit(post_id):
     if 'loggedin' in session:
         conn = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        conn.execute("SELECT title, message, status, assigned, level, deadline FROM posts WHERE id = %s", (post_id,))
+        conn.execute("SELECT title, message, status, assigned, level, deadline, project FROM posts WHERE id = %s", (post_id,))
         old_data = conn.fetchone()
 
         if request.method == "POST":
@@ -104,9 +104,10 @@ def edit(post_id):
             assigned = request.form['assigned']
             level = request.form['level']
             deadline = request.form['date']
+            assigned_project = request.form['assigned_project']
             conn.execute(
-                f"UPDATE posts SET title = %s, message = %s, status = %s, assigned = %s, level = %s, deadline=%s WHERE id = {post_id}",
-                (title, message, status, assigned, level, deadline))
+                f"UPDATE posts SET title = %s, message = %s, status = %s, assigned = %s, level = %s, deadline = %s, project = %s WHERE id = {post_id}",
+                (title, message, status, assigned, level, deadline, assigned_project))
             conn.connection.commit()
             conn.close()
             return redirect(url_for('index'))

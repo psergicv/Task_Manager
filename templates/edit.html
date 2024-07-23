@@ -31,7 +31,7 @@
                 <option value="Urgent">Urgent</option>
         </select><br>
         <select class="feedback-input" name="assigned_project" id="assigned_project">
-                <option value="Single Task">Single Task</option>
+                <option value="{{old_data['project']}}">{{old_data['project']}}</option>
                 {% for project_title in project_titles %}
                     <option value="{{ project_title.title }}">{{ project_title.title }}</option>
                 {% endfor %}
